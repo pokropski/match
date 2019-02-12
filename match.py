@@ -7,14 +7,14 @@ from selenium.webdriver.support.ui import Select
 import time
 import csv
 from random import *
- 
+
 driver = webdriver.Chrome()
 driver.get("http://www.match.com")
 wait = WebDriverWait(driver, 10)
 
 with open('matchcsv.csv') as file:
 	csvdata=list(csv.reader(file))
-		
+
 #Modify this value to determine which row runs on the CSV
 csvrow = 2
 
@@ -101,25 +101,3 @@ button = driver.find_element_by_class_name("_38avMfQ").click()
 #This also skips this question
 time.sleep(.5)
 button = driver.find_element_by_class_name("_38avMfQ").click()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
