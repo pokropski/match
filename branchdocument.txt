@@ -1,1 +1,11 @@
-this was just to show i can make a branch
+Chromewebdriver - 
+Windows: included in repo
+OSX: 'brew tap caskroom/cask' then 'brew cask install chromedriver'
+
+Selenium - 
+OSX: sudo easy_install selenium
+Windows: choco install pip | pip install selenium
+
+Python -
+OSX: brew install python
+Windows: choco install python3
