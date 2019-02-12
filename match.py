@@ -5,26 +5,31 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import time
-
+import csv
 
 driver = webdriver.Chrome()
 driver.get("http://www.match.com")
 wait = WebDriverWait(driver, 10)
 
-#Variables - edit these to modify enrollment
-usergengenseek = '2'
-#this shows 'man seeking a woman' as value 2"
-zipcode = '75214'
-useremail = 'pokropskitrainer@gmail.com'
+with open('matchcsv.csv') as file:
+	csvdata=list(csv.reader(file))
+	
+		
+#Modify this value to determine which row runs on the CSV
+csvrow = 2
+
+#Variables - do not modify
+OS = csvrow - 1
+usergengenseek = csvdata[OS][0]
+zipcode = csvdata[OS][1]
+useremail = csvdata[OS][2]
 #password has a maximum of 16 characters
-userpassword = 'thisismytestpass'
-userbirthMonth = '9'
-userbirthDay = '2'
-userbirthyear = '1987'
-userfirstname = 'chris'
-
-
-
+userpassword = csvdata[OS][3]
+userbirthMonth = csvdata[OS][4]
+userbirthDay = csvdata[OS][5]
+userbirthyear = csvdata[OS][6]
+userfirstname = csvdata[OS][7]
+userlastname = csvdata[OS][8]
 
 #click member link
 assert "Match.com" in driver.title
@@ -79,3 +84,6 @@ password.send_keys(Keys.RETURN)
 element = wait.until(EC.element_to_be_clickable((By.NAME, 'firstname')))
 firstname = driver.find_element_by_name('firstname')
 firstname.send_keys(userfirstname)
+firstname.send_keys(Keys.RETURN)
+
+
