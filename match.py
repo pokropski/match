@@ -8,16 +8,12 @@ import time
 import csv
 from random import *
  
-  
-
-
 driver = webdriver.Chrome()
 driver.get("http://www.match.com")
 wait = WebDriverWait(driver, 10)
 
 with open('matchcsv.csv') as file:
 	csvdata=list(csv.reader(file))
-	
 		
 #Modify this value to determine which row runs on the CSV
 csvrow = 2
@@ -92,7 +88,38 @@ firstname.send_keys(userfirstname)
 firstname.send_keys(Keys.RETURN)
 
 #let's get started
-element = wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Get Started")]')))
-button = driver.find_element_by_xpath('//button[contains(text(), "Get Started")]').click()
+element = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, '_3C16hUu')))
+button = driver.find_element_by_class_name("_3C16hUu").click()
+
+#Could not figure out how to select from these same class items. My knowledge of automation runs dry here
+#as I am unsure of how to continue without IDs or names for selectors. Chose the 'skip' option
+
+element = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, '_38avMfQ')))
+button = driver.find_element_by_class_name("_38avMfQ").click()
+
+#I had an issue where I could not select the class within the larger class without running into a conflict.
+#This also skips this question
+time.sleep(.5)
+button = driver.find_element_by_class_name("_38avMfQ").click()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
