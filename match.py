@@ -6,6 +6,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import time
 import csv
+from random import *
+ 
+  
+
 
 driver = webdriver.Chrome()
 driver.get("http://www.match.com")
@@ -19,6 +23,7 @@ with open('matchcsv.csv') as file:
 csvrow = 2
 
 #Variables - do not modify
+x = randint(8000000, 90000000)  #needed for email
 OS = csvrow - 1
 usergengenseek = csvdata[OS][0]
 zipcode = csvdata[OS][1]
@@ -55,7 +60,7 @@ button = driver.find_element_by_xpath('//button[contains(text(), "View Singles")
 #insert email
 element = wait.until(EC.element_to_be_clickable((By.NAME, 'email')))
 email = driver.find_element_by_name('email')
-email.send_keys(useremail)
+email.send_keys(useremail + '+' + str(x) + '@gmail.com')
 button = driver.find_element_by_xpath('//button[contains(text(), "Continue")]').click()
 
 
@@ -85,5 +90,9 @@ element = wait.until(EC.element_to_be_clickable((By.NAME, 'firstname')))
 firstname = driver.find_element_by_name('firstname')
 firstname.send_keys(userfirstname)
 firstname.send_keys(Keys.RETURN)
+
+#let's get started
+element = wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Get Started")]')))
+button = driver.find_element_by_xpath('//button[contains(text(), "Get Started")]').click()
 
 
