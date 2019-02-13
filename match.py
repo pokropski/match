@@ -19,7 +19,7 @@ with open('matchcsv.csv') as file:
 csvrow = 2
 
 #Variables - do not modify
-x = randint(8000000, 90000000)  #needed for email
+emailx = randint(8000000, 90000000)  #needed for email
 OS = csvrow - 1
 usergengenseek = csvdata[OS]["usergengenseek"]
 zipcode = csvdata[OS]["zipcode"]
@@ -57,7 +57,7 @@ button = driver.find_element_by_xpath('//button[contains(text(), "View Singles")
 #insert email
 element = wait.until(EC.element_to_be_clickable((By.NAME, 'email')))
 email = driver.find_element_by_name('email')
-email.send_keys(useremail + '+' + str(x) + '@gmail.com')
+email.send_keys(useremail + '+' + str(emailx) + '@gmail.com')
 button = driver.find_element_by_xpath('//button[contains(text(), "Continue")]').click()
 
 
