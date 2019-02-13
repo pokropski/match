@@ -38,7 +38,7 @@ link = driver.find_element_by_partial_link_text('Member')
 link.click()
 
 #click join link
-assert "https://www.match.com/login/" in driver.current_url
+#assert "https://www.match.com/login/" in driver.current_url
 link = driver.find_element_by_partial_link_text('Join for')
 link.click()
 
@@ -78,6 +78,7 @@ birthday.select_by_visible_text(userbirthDay)
 #birthdayyear (Selected by text as they are not listed as values)
 birthyear = Select(driver.find_element_by_name('birthYear'))
 birthyear.select_by_visible_text(userbirthyear)
+#Can't send return from this section. Have to do it from the password field. should clean up in the future to avoid confusion
 password.send_keys(Keys.RETURN)
 
 

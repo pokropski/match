@@ -36,4 +36,9 @@ password.clear()
 password.send_keys(userpassword)
 password.send_keys(Keys.RETURN)
 
-#stopped by captcha. unsure of how to proceed
+
+#stopped by captcha. unsure of how to proceed. attempted time.sleep() but even with 8 seconds of waiting still received captcha.
+#could potentially point webdriver at local chrome profile, but not a scalable solution.
+
+
+assert "https://www.match.com/home" in driver.current_url
