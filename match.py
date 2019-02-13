@@ -38,7 +38,8 @@ link = driver.find_element_by_partial_link_text('Member')
 link.click()
 
 #click join link
-#assert "https://www.match.com/login/" in driver.current_url
+assert "https://www.match.com/login/" in driver.current_url
+#this page takes a long time to load. not sure of cause.
 link = driver.find_element_by_partial_link_text('Join for')
 link.click()
 
