@@ -13,7 +13,7 @@ driver.get("http://www.match.com")
 wait = WebDriverWait(driver, 10)
 
 with open('matchcsv.csv') as file:
-	csvdata=list(csv.reader(file))
+	csvdata=list(csv.DictReader(file))
 
 #Modify this value to determine which row runs on the CSV
 csvrow = 2
@@ -21,16 +21,16 @@ csvrow = 2
 #Variables - do not modify
 x = randint(8000000, 90000000)  #needed for email
 OS = csvrow - 1
-usergengenseek = csvdata[OS][0]
-zipcode = csvdata[OS][1]
-useremail = csvdata[OS][2]
+usergengenseek = csvdata[OS]["usergengenseek"]
+zipcode = csvdata[OS]["zipcode"]
+useremail = csvdata[OS]["useremail"]
 #password has a maximum of 16 characters
-userpassword = csvdata[OS][3]
-userbirthMonth = csvdata[OS][4]
-userbirthDay = csvdata[OS][5]
-userbirthyear = csvdata[OS][6]
-userfirstname = csvdata[OS][7]
-userlastname = csvdata[OS][8]
+userpassword = csvdata[OS]["userpassword"]
+userbirthMonth = csvdata[OS]["userbirthmonth"]
+userbirthDay = csvdata[OS]["userbirthday"]
+userbirthyear = csvdata[OS]["userbirthyear"]
+userfirstname = csvdata[OS]["userfirstname"]
+userlastname = csvdata[OS]["userlastname"]
 
 #click member link
 assert "Match.com" in driver.title
